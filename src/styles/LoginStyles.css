@@ -1,0 +1,70 @@
+.MainPage{
+    background-color: yellow;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.RightSide{
+    background-color: orange;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.LeftSide{
+    background-color: white;
+    width: 55%;
+}
+
+.bar{
+    background-color: blue;
+    width: 100%;
+    height: 1%;
+    position: fixed;
+    top: 0;
+}
+.Welcome-Txt{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Submit-Txt{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+@media only  screen and (max-width:990px){
+    .MainPage{
+        flex-direction: column;
+      
+    }
+
+    .RightSide{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .LeftSide{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+
+    }
+    .Svg{
+        width: 100%;
+        height: 100%;
+    }
+}
+
