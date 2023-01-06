@@ -111,6 +111,16 @@
     border-right: none;
 }
 
+.Email-Input:focus{
+    outline: none;
+}
+.Email-Input-Valid:focus{
+    outline: none;
+}
+.Email-Input-Bad:focus{
+    outline: none;
+}
+
 .Email-Input:hover{
     outline: none;
 }
