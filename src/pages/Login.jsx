@@ -21,7 +21,33 @@ const Login =()=>{
                 </div>
             </div>
             <div className="LeftSide">
-                input
+               <div className="Sign-Txt">
+                Sign In To The CENG Portal
+               </div>
+               <div className="New-Txt">
+                New Here? 
+                <div className="Create-Txt">
+                    Create an Account
+                </div>
+               </div>
+               <form className="form">
+                <div className="Email-Field">
+                    <p> Email Address</p>
+                    <input className="Email-Input" type="text"/>
+                </div>
+                <div className="Password-Field">
+                    <div className="Password-Top">
+                        <div>
+                            Password
+                        </div>
+                        <div>
+                            Forgot Password
+                        </div>
+                    </div>
+                    <input type="password"/>
+                </div>
+                <button className="btn"> Sign In </button>
+               </form>
             </div>
         </div>
     )
