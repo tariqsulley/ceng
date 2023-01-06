@@ -41,12 +41,12 @@ const Login =()=>{
                             Password
                         </div>
                         <div>
-                            Forgot Password
+                            Forgot Password?
                         </div>
                     </div>
-                    <input type="password"/>
+                    <input className="Password-Input" type="password"/>
                 </div>
-                <button className="btn"> Sign In </button>
+                <button className="Btn"> Sign In </button>
                </form>
             </div>
         </div>
