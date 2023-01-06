@@ -24,7 +24,9 @@
 .Welcome-Txt{
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20%;
 }
 
 .Submit-Txt{
@@ -66,12 +68,15 @@
     width: 100%;
     height: 30px;
     border-radius: 5px;
+    background-color: white;
     border: 1px solid #50cd89;
 }
 
 .Password-Top{
     display: flex;
 }
+
+
 @media only  screen and (max-width:990px){
     .MainPage{
         flex-direction: column;      

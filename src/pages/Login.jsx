@@ -13,7 +13,7 @@ const Login =()=>{
                     Welcome To The CENG Portal
                 </div>
                 <div className="Submit-Txt">
-                    Submit your ceng topics for approval and reports for
+                    Submit your CENG topics for approval and reports for
                     Grading by Lecturers
                 </div>
                 <div>
