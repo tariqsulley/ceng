@@ -164,7 +164,6 @@
 }
 
 .Email-Wrapper{
-    position: relative;
     display: flex;
     flex-direction: row-reverse;
 }
