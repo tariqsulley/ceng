@@ -43,7 +43,7 @@ const Login =()=>{
                      <div className="Email-Txt">Email Address </div>
                      <div className="Email-Wrapper">
                      <div> {emailError == null? "":(emailError == true ?
-                     <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"red"}}/>:
+                     <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"tomato"}}/>:
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
                      </div>
                     <input value={email} onChange={(e)=> 
