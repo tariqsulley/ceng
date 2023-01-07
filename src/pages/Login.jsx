@@ -53,7 +53,7 @@ const Login =()=>{
                </div>
                <form label="login-form" className="form">
                 <div className="Email-Field">
-                     <div className="Email-txt">Email Address</div>
+                     <div className="Email-Txt">Email Address</div>
                     <input className="Email-Input" type="text"/>
                 </div>
                 <div className="Password-Field">
