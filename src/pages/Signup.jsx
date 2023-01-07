@@ -12,6 +12,25 @@ const Signup = ()=>{
     const [StudentID,setStudentID] = useState("")
     const [IndexNumber,setIndexNumber] = useState("")
 
+    const handleStudentIDChange = (e) => {
+        const inputValue = e.target.value;
+        const eightDigitRegex = /^\d{0,8}$/;
+      
+        if (eightDigitRegex.test(inputValue)) {
+          setStudentID(inputValue);
+        }
+      }
+
+      
+    const handleIndexNumberChange = (e) => {
+        const inputValue = e.target.value;
+        const numberRegex = /^[0-9]*$/;
+  
+       if (numberRegex.test(inputValue)) {
+          setIndexNumber(inputValue);
+        }
+  }
+
     return(
         <div className="Main-Page">
             <div>
@@ -51,11 +70,11 @@ const Signup = ()=>{
                 className="Input" type="text"/>
                 
                 <p style={{color:"black"}}> Student ID </p>
-                <input value={StudentID} onChange={(e)=> setStudentID(e.target.value)} 
+                <input value={StudentID} onChange={handleStudentIDChange} 
                 className="Input" type="text"/>
                 
                 <p style={{color:"black"}}> Index Number </p>
-                <input value={IndexNumber} onChange={(e)=>setIndexNumber(e.target.value)} 
+                <input value={IndexNumber} onChange={handleIndexNumberChange} 
                 className="Input" type="text"/>
                 
                 <p style={{color:"black"}}> Password </p>
