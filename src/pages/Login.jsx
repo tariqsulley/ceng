@@ -1,8 +1,29 @@
-import React from "react"
+import React, {useEffect} from "react"
 import "../styles/LoginStyles.css"
 import svg from "../assets/engineers.svg"
 
 const Login =()=>{
+    useEffect(() => {
+        // Add event listener to listen for input field focus
+        window.addEventListener('focus', handleInputFocus);
+    
+        // Remove event listener when the component unmounts
+        return () => {
+          window.removeEventListener('focus', handleInputFocus);
+        };
+      }, []); // Empty array ensures that the effect is only run on mount and unmount
+    
+      const handleInputFocus = (e) => {
+        // Check if the focused element is an input field
+        if (e.target.tagName === 'INPUT') {
+          // Calculate the position of the input field
+          // You may need to adjust these values based on your layout
+          const inputPosition = e.target.offsetTop - e.target.offsetHeight;
+          // Scroll to the position of the input field
+          window.scrollTo(0, inputPosition);
+        }
+      };
+
     return(
         <div className="MainPage">
             <div className ="RightSide">
@@ -17,7 +38,7 @@ const Login =()=>{
                     Grading by Lecturers
                 </div>
                 <div>
-                    <img className="Svg" src={svg}/>
+                    <img className="Svg" alt="engineers svg" src={svg}/>
                 </div>
             </div>
             <div className="LeftSide">
@@ -30,7 +51,7 @@ const Login =()=>{
                     Create an Account
                 </div>
                </div>
-               <form className="form">
+               <form label="login-form" className="form">
                 <div className="Email-Field">
                     <p> Email Address</p>
                     <input className="Email-Input" type="text"/>
