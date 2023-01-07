@@ -6,8 +6,8 @@
     justify-content: space-between;
 }
 
-.RightSide{
-    background-color: orange;
+.LeftSide{
+    background-color: #f2b91e;
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@
 }
 
 
-.LeftSide{
+.RightSide{
     background-color: white;
     width: 55%;
     display: flex;
@@ -59,7 +59,7 @@
     display: flex;
 }
 .Create-Txt{
-    color: orange;
+    color: #f2b91e;
     font-weight: bold;
     padding-left: 5px;
 }
@@ -88,7 +88,11 @@
     background-color: white;
     color: black;
     border-radius: 5px;
-    border: 1px solid #50cd89;
+    border: 1px solid grey;
+}
+
+.Password-Input:focus{
+    outline: none;
 }
 
 .Password-Top{
@@ -111,10 +115,15 @@
     height: 30%;
 }
 
+.empty{
+    color: red;
+}
+
 .Btn{
     background-color: #181c32;
     color: white;
 }
+
 @media only  screen and (max-width:990px){
     .MainPage{
         flex-direction: column;      
@@ -122,7 +131,7 @@
 
     .RightSide{
         width: 100%;
-        height: 42%;
+        height: 62%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -134,7 +143,7 @@
    }
     .LeftSide{
         width: 100%;
-        height: 58%;
+        height: 40%;
         display: flex;
         justify-content: center;
 
@@ -152,7 +161,7 @@
         
     }
     .Btn{
-        margin-top: 30px;
+        margin-top: 35px;
     }
 }
 
