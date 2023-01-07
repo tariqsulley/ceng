@@ -1,0 +1,129 @@
+.Main-Page{
+    height: 99vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;    
+}
+
+.Bar{
+    background-color: blue;
+    width: 1000vw;
+    height: 1%;
+    position: fixed;
+    top: 0;
+}
+
+.FixedSide{
+    background-color: #f2b91e;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;  
+}
+
+.SignUpPage{
+    position: absolute;
+    right: 0;
+    background-color: white;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.First-Section{
+    margin-top: 8%;
+    text-align: center;
+    width: 70%;
+}
+
+.P1{
+    font-weight: bold;
+    font-size: 30px;
+}
+.P2{
+    color: gray;
+    font-size: 18px;
+}
+.B1{
+    width: 100%;
+    background-color: #eff2f5;
+    font-weight: bold;
+}
+.Input{
+    padding: 4px;
+    width: 100%;
+    padding-left: 12px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.Name-Section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.Second-Section{
+    margin-top: 30px;
+    width: 70%;
+}
+
+.Last-Name{
+    margin-right: 10%;
+}
+
+.First-Name input{
+    width: 110%;
+}
+.Last-Name input{
+    width: 110%;
+}
+
+.Contact-Section{
+    display: flex;
+    flex-direction: column;
+}
+
+.Contact-Section button{
+    margin: 50px;
+}
+
+@media only screen and (max-width:990px){
+ .Main-Page{
+    display: flex;
+    flex-direction: column;
+ }   
+.FixedSide{
+    position: relative;
+    width: 100%;
+}
+.SignUpPage{
+    position: relative;
+    width: 100%;
+}
+.Bar{
+    width: 100vw;
+}
+
+.Name-Section{
+    flex-direction: column;
+}
+.First-Name input{
+    width: 100%;
+}
+
+.Last-Name input{
+   width: 100%;
+}
+.Last-Name{
+    margin-right: 0;
+}
+}

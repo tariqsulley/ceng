@@ -3,6 +3,7 @@ import "../styles/LoginStyles.css"
 import LeftDisplay from "../components/LeftDisplay"
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
+import { Link } from "react-router-dom";
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\S$/;
 
@@ -27,15 +28,17 @@ const Login =()=>{
 
     return(
         <div className="MainPage">
+            <div className="bar">
+        </div>
             <LeftDisplay/>
                 <div className="RightSide">
-               <div className="Sign-Txt">
-                Sign In To The CENG Portal
+                   <div className="Sign-Txt">
+                    Sign In To The CENG Portal
                </div>
                <div className="New-Txt">
                 New Here? 
-                <div className="Create-Txt">
-                    Create an Account
+                <div>
+                  <Link className="Create-Txt" to="/Signup">  Create an Account </Link>
                 </div>
                </div>
                <form label="login-form" className="form">
@@ -48,8 +51,8 @@ const Login =()=>{
                      </div>
                     <input value={email} onChange={(e)=> 
                     {setEmail(e.target.value);validateEmail(e.target.value)}} 
-                    className={(emailError == null ? "Email-Input":(emailError == true ? "Email-Input-Bad":"Email-Input-Valid") )
-                     } 
+                    className={(emailError == null ? "Email-Input":(emailError == true ? 
+                    "Email-Input-Bad":"Email-Input-Valid") )} 
                     type="text"/>
                     </div>
                 </div>
@@ -59,13 +62,13 @@ const Login =()=>{
                             <div className="Password-Txt">Password</div>
                         </div>
                         <div>
-                            <div className="Forgot-Txt">Forgot Password?</div>
+                            <div className="Create-Txt" >Forgot Password?</div>
                         </div>
                     </div>
                     <input value={password} onChange={(e)=> {setPassword(e.target.value);
                     setPassError("Password cannot be empty")}}
-                     className="Password-Input" type="password"/>
-                     <p className="empty">{password.length > 0 ? "":passError}</p>
+                    className="Password-Input" type="password"/>
+                    <p className="empty">{password.length > 0 ? "":passError}</p>
                 </div>
                 <button className="Btn"> Sign In </button>
                </form>

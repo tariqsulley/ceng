@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../styles/LoginStyles.css"
+import "../styles/SignupStyles.css"
 import svg from "../assets/engineers.svg"
+import { UseStyle } from "../contexts/StylesContext.jsx";
 
-const LeftDisplay = ()=>{
+const LeftDisplay = ({prop=false})=>{
+    const onSignUp = prop
+
+    useEffect(()=>{
+        console.log(onSignUp)
+    },[])
+
     return(
-        <div className ="LeftSide">
-        <div className="bar">
-        </div>
+        <div className ={onSignUp == true ? "FixedSide":"LeftSide"}>
+        
         <div className="Welcome-Txt">
             Welcome To The CENG Portal
         </div>
