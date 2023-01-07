@@ -7,20 +7,21 @@ import { Link } from "react-router-dom";
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\S$/;
 
+export const validateEmail = (email,action) =>{
+    if(emailRegex.test(email)){
+            action(false)
+    }
+    else{
+        action(true)
+    }
+}
+
 const Login =()=>{
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [passError,setPassError] = useState("")
     const [emailError,setEmailError] = useState(null)
 
-    const validateEmail = (email) =>{
-        if(emailRegex.test(email)){
-                setEmailError(false)
-        }
-        else{
-            setEmailError(true)
-        }
-    }
     
     useEffect(()=>{
         setPassError("")
@@ -50,7 +51,7 @@ const Login =()=>{
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
                      </div>
                     <input value={email} onChange={(e)=> 
-                    {setEmail(e.target.value);validateEmail(e.target.value)}} 
+                    {setEmail(e.target.value);validateEmail(e.target.value,setEmailError)}} 
                     className={(emailError == null ? "Email-Input":(emailError == true ? 
                     "Email-Input-Bad":"Email-Input-Valid") )} 
                     type="text"/>

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import LeftDisplay from "../components/LeftDisplay";
 import "../styles/SignUpStyles.css"
 import { Link } from "react-router-dom";
+import { validateEmail } from "./Login";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import CheckIcon from '@mui/icons-material/Check';
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
@@ -11,6 +14,8 @@ const Signup = ()=>{
     const [PasswordCon,setPasswordCon] = useState("")
     const [StudentID,setStudentID] = useState("")
     const [IndexNumber,setIndexNumber] = useState("")
+
+    const [emailError,setEmailError] = useState(null)
 
     const handleStudentIDChange = (e) => {
         const inputValue = e.target.value;
@@ -66,8 +71,17 @@ const Signup = ()=>{
 
                 <div className="Contact-Section">
                 <p style={{color:"black"}}> Email Address </p>
-                <input value={Email} onChange={(e)=> setEmail(e.target.value)}  
-                className="Input" type="text"/>
+                <div className="Email-Wrapper">
+                     <div> {emailError == null? "":(emailError == true ?
+                     <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"tomato"}}/>:
+                     <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
+                     </div>
+                    <input value={Email} onChange={(e)=> 
+                    {setEmail(e.target.value);validateEmail(e.target.value,setEmailError)}} 
+                    className={(emailError == null ? "Email-Input":(emailError == true ? 
+                    "Email-Input-Bad":"Email-Input-Valid") )} 
+                    type="text"/>
+                </div>
                 
                 <p style={{color:"black"}}> Student ID </p>
                 <input value={StudentID} onChange={handleStudentIDChange} 
