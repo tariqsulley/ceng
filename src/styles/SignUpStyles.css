@@ -98,6 +98,34 @@
     margin: 50px;
 }
 
+.StrengthField{
+    display: flex;
+    flex-direction: row;
+    width: 102%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+.PasswordStrength{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    width: 23%;
+    height: 8px;
+    border-radius: 10px;
+}
+
+.PasswordStrength.one {
+    background-color: green;
+  }
+  
+  .PasswordStrength.Moderate {
+    background-color: yellow;
+  }
+  
+  .PasswordStrength.Weak {
+    background-color: #F1416C;
+  }
 @media only screen and (max-width:900px){
  .Main-Page{
     display: flex;

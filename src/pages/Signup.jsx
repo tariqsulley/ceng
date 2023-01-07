@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeftDisplay from "../components/LeftDisplay";
 import "../styles/SignUpStyles.css"
 import { Link } from "react-router-dom";
 import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
+
+
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
@@ -14,8 +16,19 @@ const Signup = ()=>{
     const [PasswordCon,setPasswordCon] = useState("")
     const [StudentID,setStudentID] = useState("")
     const [IndexNumber,setIndexNumber] = useState("")
-
+   
     const [emailError,setEmailError] = useState(null)
+    const elements = [1,2,3,4]
+
+    const checkPasswordStrength = password => {
+        if (password.length >= 8 && /[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^a-zA-Z0-9]/.test(password)) {
+          return "Strong";
+        } else if (password.length >= 8 && (/[a-z]/.test(password) || /[A-Z]/.test(password)) && (/[0-9]/.test(password) || /[^a-zA-Z0-9]/.test(password))) {
+          return "Moderate";
+        } else {
+          return "Weak";
+        }
+      }
 
     const handleStudentIDChange = (e) => {
         const inputValue = e.target.value;
@@ -35,6 +48,7 @@ const Signup = ()=>{
           setIndexNumber(inputValue);
         }
   }
+
 
     return(
         <div className="Main-Page">
@@ -94,6 +108,13 @@ const Signup = ()=>{
                 <p style={{color:"black"}}> Password </p>
                 <input value={Password} onChange={(e)=> setPassword(e.target.value)}
                 className="Input" type="text"/>
+                <div className="StrengthField">
+                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
+                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
+                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
+                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
+                </div>
+                
                 
                 <p style={{color:"black"}}> Confirm Password </p>
                 <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
