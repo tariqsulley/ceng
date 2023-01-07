@@ -18,6 +18,14 @@ const Signup = ()=>{
     const [IndexNumber,setIndexNumber] = useState("")
    
     const [emailError,setEmailError] = useState(null)
+    const [IdError,setIdError] = useState(null)
+
+    const FirstNameValue = FirstName === "" ? "":FirstName.length > 0
+    const LastNameValue = LastName === ""? "":LastName.length > 0
+
+    useEffect(()=>{
+        setFirstName("")
+    },[])
 
     const checkPasswordStrength = password => {
         const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[\S]{8,}$/;
@@ -35,7 +43,10 @@ const Signup = ()=>{
         const eightDigitRegex = /^\d{0,8}$/;
       
         if (eightDigitRegex.test(inputValue)) {
-          setStudentID(inputValue);
+          setStudentID(inputValue)
+          setIdError(true)
+        }else{
+            setIdError(false)
         }
       }
 
@@ -72,14 +83,36 @@ const Signup = ()=>{
                 
                 <div className="First-Name">
                 <p style={{color:"black"}}> First Name</p>
-                <input value={FirstName} onChange={(e)=>setFirstName(e.target.value)} 
-                className="Input" type="text"/>
+               
+                <div className="Email-Wrapper">
+                     <div> {FirstNameValue === "" ? "":(FirstNameValue === true ? 
+                     <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>:
+                     <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>)}
+                    
+                     </div>
+                    <input value={FirstName} onChange={(e)=> 
+                    setFirstName(e.target.value)} 
+                    className={FirstNameValue === "" ? "Email-Input":FirstNameValue === true ?
+                     "Email-Input-Valid":"Email-Input-Bad"} 
+                    type="text"/>
+                </div>
                 </div>
 
                 <div className="Last-Name">
                 <p style={{color:"black"}}> Last Name </p>
-                <input value={LastName} onChange={(e)=>setLastName(e.target.value)} 
-                 className="Input" type="text"/>
+                
+                  <div className="Email-Wrapper">
+                     <div> {LastNameValue === "" ? "":(LastNameValue === true ? 
+                     <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>:
+                     <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>)}
+                    
+                     </div>
+                    <input value={LastName} onChange={(e)=> 
+                    setLastName(e.target.value)} 
+                    className={LastNameValue === "" ? "Email-Input":LastNameValue === true ?
+                     "Email-Input-Valid":"Email-Input-Bad"} 
+                    type="text"/>
+                </div>
                 </div>
                 
                 </div>
@@ -88,7 +121,7 @@ const Signup = ()=>{
                 <p style={{color:"black"}}> Email Address </p>
                 <div className="Email-Wrapper">
                      <div> {emailError == null? "":(emailError == true ?
-                     <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"tomato"}}/>:
+                     <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
                      </div>
                     <input value={Email} onChange={(e)=> 
@@ -99,8 +132,19 @@ const Signup = ()=>{
                 </div>
                 
                 <p style={{color:"black"}}> Student ID </p>
-                <input value={StudentID} onChange={handleStudentIDChange} 
-                className="Input" type="text"/>
+               
+                <div className="Email-Wrapper">
+                     <div> {IdError == null? "":(IdError== true ?
+                     <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
+                     <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
+                     </div>
+                    <input value={StudentID} onChange={(e)=> 
+                    {handleStudentIDChange(e)}} 
+                    className={(IdError == null ? "Email-Input":(IdError == true ? 
+                    "Email-Input-Bad":"Email-Input-Valid") )} 
+                    type="text"/>
+                </div>
+                
                 
                 <p style={{color:"black"}}> Index Number </p>
                 <input value={IndexNumber} onChange={handleIndexNumberChange} 

@@ -92,8 +92,10 @@
     height: 30px;
     background-color: white;
     color: black;
-    border-radius: 5px;
     border: 1px solid #50cd89;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .Email-Input-Bad{
@@ -103,8 +105,10 @@
     height: 30px;
     background-color: white;
     color: black;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border: 1px solid tomato;
+    border-right: none;
 }
 
 .Email-Input:hover{
@@ -161,14 +165,29 @@
 
 .Email-Wrapper{
     position: relative;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .Icon{
-    position: absolute;
-    right: 0;
-    top: 10%;
+    border: 1px solid;
+    height: 30px;
+    padding: 4px;
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: #50cd89;
 }
 
+.Icon-Bad{
+    border: 1px solid;
+    height: 30px;
+    padding: 4px;
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: tomato;
+}
 .Btn{
     background-color: #181c32;
     color: white;
