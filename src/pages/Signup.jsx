@@ -18,12 +18,12 @@ const Signup = ()=>{
     const [IndexNumber,setIndexNumber] = useState("")
    
     const [emailError,setEmailError] = useState(null)
-    const elements = [1,2,3,4]
 
     const checkPasswordStrength = password => {
-        if (password.length >= 8 && /[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^a-zA-Z0-9]/.test(password)) {
+        const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[\S]{8,}$/;
+        if (regex.test(password)) {
           return "Strong";
-        } else if (password.length >= 8 && (/[a-z]/.test(password) || /[A-Z]/.test(password)) && (/[0-9]/.test(password) || /[^a-zA-Z0-9]/.test(password))) {
+        } else if (password.length >= 8 && (/[a-z]/.test(password) || /[A-Z]/.test(password))) {
           return "Moderate";
         } else {
           return "Weak";
@@ -49,7 +49,8 @@ const Signup = ()=>{
         }
   }
 
-
+  const strength = Password.length === 0 ?  null:checkPasswordStrength(Password)
+  
     return(
         <div className="Main-Page">
             <div>
@@ -109,12 +110,26 @@ const Signup = ()=>{
                 <input value={Password} onChange={(e)=> setPassword(e.target.value)}
                 className="Input" type="text"/>
                 <div className="StrengthField">
-                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
-                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
-                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
-                        <div className={`PasswordStrength ${checkPasswordStrength(Password)}`}></div>
+                        <div className={strength === "Weak" ? "PasswordStrength Weak":
+                        (strength === "Moderate" ? "PasswordStrength Moderate":
+                        (strength === "Strong" ? "PasswordStrength Strong":"PasswordStrength"))}>
+
+                        </div>
+                        <div className={strength === "Moderate" ? "PasswordStrength Moderate":
+                        (strength === "Strong" ? "PasswordStrength Strong":"PasswordStrength") } >
+                            
+                        </div>
+                        <div className={strength === "Moderate" ? "PasswordStrength Moderate":
+                        (strength === "Strong" ? "PasswordStrength Strong":"PasswordStrength")}>
+
+                        </div>
+                        <div className={strength === "Strong" ? "PasswordStrength Strong":"PasswordStrength" }>
+
+                        </div>
                 </div>
-                
+                <div style={{color:"grey",marginTop:"10px"}}>
+                 Use 8 or more characters with a mix of upper and lower case letters, numbers & symbols.
+                </div>
                 
                 <p style={{color:"black"}}> Confirm Password </p>
                 <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}

@@ -109,18 +109,18 @@
 .PasswordStrength{
     display: flex;
     flex-direction: row;
-    background-color: grey;
+    background-color: lightgrey;
     width: 23%;
     height: 8px;
     border-radius: 10px;
 }
 
-.PasswordStrength.one {
+.PasswordStrength.Strong {
     background-color: green;
   }
   
   .PasswordStrength.Moderate {
-    background-color: yellow;
+    background-color: gold;
   }
   
   .PasswordStrength.Weak {
