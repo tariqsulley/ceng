@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import "../styles/LoginStyles.css"
-import "../styles/SignupStyles.css"
+import "../styles/SignUpStyles.css"
 import svg from "../assets/engineers.svg"
 import { UseStyle } from "../contexts/StylesContext.jsx";
 
