@@ -1,8 +1,7 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import { StyleProvider } from "./contexts/StylesContext";
-
+import { StyleProvider } from './contexts/StylesContext';
 function App() {
   return (
   <StyleProvider>

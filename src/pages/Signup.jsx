@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import LeftDisplay from "../components/LeftDisplay";
 import "../styles/SignUpStyles.css"
 import { Link } from "react-router-dom";
 
 const Signup = ()=>{
+    const [FirstName,setFirstName] = useState("")
+    const [LastName,setLastName] = useState("")
+    const [Email,setEmail] = useState("")
+    const [Password,setPassword] = useState("")
+    const [PasswordCon,setPasswordCon] = useState("")
+    const [StudentID,setStudentID] = useState("")
+    const [IndexNumber,setIndexNumber] = useState("")
 
     return(
         <div className="Main-Page">
@@ -26,27 +33,39 @@ const Signup = ()=>{
                 
                 <div className="First-Name">
                 <p style={{color:"black"}}> First Name</p>
-                <input  className="Input" type="text"/>
+                <input value={FirstName} onChange={(e)=>setFirstName(e.target.value)} 
+                className="Input" type="text"/>
                 </div>
 
                 <div className="Last-Name">
                 <p style={{color:"black"}}> Last Name </p>
-                <input className="Input" type="text"/>
+                <input value={LastName} onChange={(e)=>setLastName(e.target.value)} 
+                 className="Input" type="text"/>
                 </div>
                 
                 </div>
 
                 <div className="Contact-Section">
                 <p style={{color:"black"}}> Email Address </p>
-                <input className="Input" type="text"/>
+                <input value={Email} onChange={(e)=> setEmail(e.target.value)}  
+                className="Input" type="text"/>
+                
                 <p style={{color:"black"}}> Student ID </p>
-                <input className="Input" type="text"/>
+                <input value={StudentID} onChange={(e)=> setStudentID(e.target.value)} 
+                className="Input" type="text"/>
+                
                 <p style={{color:"black"}}> Index Number </p>
-                <input className="Input" type="text"/>
-                <p style={{color:"black"}}> Passwword </p>
-                <input className="Input" type="text"/>
+                <input value={IndexNumber} onChange={(e)=>setIndexNumber(e.target.value)} 
+                className="Input" type="text"/>
+                
+                <p style={{color:"black"}}> Password </p>
+                <input value={Password} onChange={(e)=> setPassword(e.target.value)}
+                className="Input" type="text"/>
+                
                 <p style={{color:"black"}}> Confirm Password </p>
-                <input className="Input" type="text"/>
+                <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
+                className="Input" type="text"/>
+                
                 <button className="Btn"> Submit </button>
                 </div>
             </div>
