@@ -25,27 +25,27 @@ const Signup = ()=>{
                 <div className="Name-Section">
                 
                 <div className="First-Name">
-                <p> First Name</p>
+                <p style={{color:"black"}}> First Name</p>
                 <input  className="Input" type="text"/>
                 </div>
 
                 <div className="Last-Name">
-                <p> Last Name </p>
+                <p style={{color:"black"}}> Last Name </p>
                 <input className="Input" type="text"/>
                 </div>
                 
                 </div>
 
                 <div className="Contact-Section">
-                <p> Email Address </p>
+                <p style={{color:"black"}}> Email Address </p>
                 <input className="Input" type="text"/>
-                <p> Student ID </p>
+                <p style={{color:"black"}}> Student ID </p>
                 <input className="Input" type="text"/>
-                <p> Index Number </p>
+                <p style={{color:"black"}}> Index Number </p>
                 <input className="Input" type="text"/>
-                <p> Passwword </p>
+                <p style={{color:"black"}}> Passwword </p>
                 <input className="Input" type="text"/>
-                <p> Confirm Password </p>
+                <p style={{color:"black"}}> Confirm Password </p>
                 <input className="Input" type="text"/>
                 <button className="Btn"> Submit </button>
                 </div>
