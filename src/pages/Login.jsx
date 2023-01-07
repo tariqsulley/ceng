@@ -40,7 +40,7 @@ const Login =()=>{
                </div>
                <form label="login-form" className="form">
                 <div className="Email-Field">
-                     <div className="Email-Txt">Email Address </div>
+                     <div className="Email-Txt">Email Addre </div>
                      <div className="Email-Wrapper">
                      <div> {emailError == null? "":(emailError == true ?
                      <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"red"}}/>:
