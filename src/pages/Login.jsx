@@ -1,6 +1,8 @@
 import React, {useEffect,useState} from "react"
 import "../styles/LoginStyles.css"
 import LeftDisplay from "../components/LeftDisplay"
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import CheckIcon from '@mui/icons-material/Check';
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -38,12 +40,18 @@ const Login =()=>{
                </div>
                <form label="login-form" className="form">
                 <div className="Email-Field">
-                     <div className="Email-Txt">Email Address</div>
+                     <div className="Email-Txt">Email Address </div>
+                     <div className="Email-Wrapper">
+                     <div> {emailError == null? "":(emailError == true ?
+                     <ErrorOutlineIcon className="Icon" style={{fontSize:30,color:"red"}}/>:
+                     <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
+                     </div>
                     <input value={email} onChange={(e)=> 
                     {setEmail(e.target.value);validateEmail(e.target.value)}} 
                     className={(emailError == null ? "Email-Input":(emailError == true ? "Email-Input-Bad":"Email-Input-Valid") )
                      } 
                     type="text"/>
+                    </div>
                 </div>
                 <div className="Password-Field">
                     <div className="Password-Top">
