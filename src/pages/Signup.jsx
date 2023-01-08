@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
-
-
+import { UserAuth } from "../contexts/AuthContext";
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
