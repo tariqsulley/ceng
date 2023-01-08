@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import LeftDisplay from "../components/LeftDisplay";
 import "../styles/SignUpStyles.css"
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { UserAuth } from "../contexts/AuthContext";
+import Home from "./Home";
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
@@ -21,6 +22,25 @@ const Signup = ()=>{
 
     const FirstNameValue = FirstName === "" ? "":FirstName.length > 0
     const LastNameValue = LastName === ""? "":LastName.length > 0
+
+    const {createUser} = UserAuth()
+    const navigate = useNavigate()
+
+    const handleSubmit = async()=>{
+      if(Password !== PasswordCon){
+        alert("Passwords must match")
+      }
+      else if(StudentID.length < 7){
+        alert("Student ID number must be 8 digits")
+      }else{
+        try{
+            await createUser(Email,Password)
+            navigate("/Home")
+        }catch(e){
+          console.log(e.message)
+        }
+      }
+    }
 
     useEffect(()=>{
         setFirstName("")
@@ -178,7 +198,7 @@ const Signup = ()=>{
                 <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
                 className="Input" type="text"/>
                 
-                <button className="Btn"> Submit </button>
+                <button onClick={handleSubmit} className="Btn"> Submit </button>
                 </div>
             </div>
 

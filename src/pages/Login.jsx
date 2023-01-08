@@ -4,6 +4,8 @@ import LeftDisplay from "../components/LeftDisplay"
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { Link } from "react-router-dom";
+import { UserAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\S$/;
 
@@ -21,8 +23,19 @@ const Login =()=>{
     const [password,setPassword] = useState("")
     const [passError,setPassError] = useState("")
     const [emailError,setEmailError] = useState(null)
+    const {signIn} = UserAuth()
+    const navigate = useNavigate()
 
-    
+    const handleSubmit = async(e)=>{
+        try{
+            e.preventDefault()
+            await signIn(email,password)
+            navigate("/Home")
+        }catch(e){
+            console.log(e.message)
+        }
+    }
+
     useEffect(()=>{
         setPassError("")
     },[])
@@ -42,7 +55,7 @@ const Login =()=>{
                   <Link className="Create-Txt" to="/Signup">  Create an Account </Link>
                 </div>
                </div>
-               <form label="login-form" className="form">
+               <form label="login-form" onClick={handleSubmit}  className="form">
                 <div className="Email-Field">
                      <div className="Email-Txt">Email Address </div>
                      <div className="Email-Wrapper">
