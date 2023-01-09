@@ -18,14 +18,22 @@ const Home = ()=>{
         }
     }
 
+    
+    const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuVisible(!isMenuVisible);
+    }
+
     useEffect(()=>{
-        
-    },[])
+        setPage(2)
+    })
     return(
         <div className="HomePage">
             <div className="Bar">
             </div>
-            <div className="Menu">
+            
+            <div className={isMenuVisible ===true?"Menu":"Menu-Mobile"}>
                <div className="Top-Field">
                <div className="Title-Field">
                <div className="Ceng-Field">
@@ -56,6 +64,11 @@ const Home = ()=>{
                </div>
             </div>
             <div className="Content">
+            <div onClick={toggleMenu} className="Toggle">
+            <div className="Bar1"></div>
+            <div className="Bar2"></div>
+            <div className="Bar3"></div>
+            </div>
              {page === 1 ? <p>1</p>:page === 2 ? <SubmitPage/>:3 }
             </div>
         </div>
