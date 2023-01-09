@@ -6,6 +6,7 @@ import SubmitPage from "./Submit";
 
 const Home = ()=>{
     const[page,setPage] = useState()
+    const [menu,setMenu] = useState()
     const {user,logOut} = UserAuth()
     const navigate = useNavigate()
 
@@ -26,21 +27,22 @@ const Home = ()=>{
     }
 
     useEffect(()=>{
-        setPage(2)
     },[])
+   
     return(
         <div className="HomePage">
             <div className="Bar">
             </div>
             
-            <div className={isMenuVisible ===true?"Menu":"Menu-Mobile"}>
+            <div 
+className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900 ? "Menu":"Menu-Mobile"}>
                <div className="Top-Field">
                <div className="Title-Field">
                <div className="Ceng-Field">
                <p className="Coe-Txt">CoE Ceng Portal</p>
                </div>
                <div className="Home-Field">
-                <p onClick={()=>setPage(1)} className="Student-Txt">Student Home</p>
+                <p onClick={()=>{setPage(1);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Student Home</p>
                </div>
                </div>
 
@@ -49,10 +51,10 @@ const Home = ()=>{
                         Tools
                     </div>
                     <div className="Submit-Field">
-                        <p onClick={()=>setPage(2)} className="Student-Txt">Submit Your Topic</p>
+                        <p onClick={()=>{setPage(2);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Submit Your Topic</p>
                     </div>
                     <div className="Upload-Field">
-                        <p onClick={()=>setPage(3)} className="Student-Txt">Upload Your Report</p>
+                        <p onClick={()=>{setPage(3);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Upload Your Report</p>
                     </div>
                </div>
                </div>
