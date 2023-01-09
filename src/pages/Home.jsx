@@ -27,7 +27,7 @@ const Home = ()=>{
 
     useEffect(()=>{
         setPage(2)
-    })
+    },[])
     return(
         <div className="HomePage">
             <div className="Bar">
