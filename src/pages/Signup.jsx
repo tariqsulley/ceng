@@ -92,7 +92,7 @@ const Signup = ()=>{
             <div className="First-Section">
                 <p className="P1"> Create An Account</p>
                 <p className="P2"> Do you already have an account?</p>
-                <Link to="/"> ``
+                <Link to="/"> 
                 <button className="B1"> Sign in here </button>
                 </Link>
             </div>
@@ -102,6 +102,7 @@ const Signup = ()=>{
                 <div className="First-Name">
                 <p style={{color:"black"}}> First Name</p>
                
+               <div className="Email-Field">
                 <div className="Email-Wrapper">
                      <div> {FirstNameValue === "" ? "":(FirstNameValue === true ? 
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>:
@@ -115,10 +116,11 @@ const Signup = ()=>{
                     type="text"/>
                 </div>
                 </div>
-
+                </div>
                 <div className="Last-Name">
                 <p style={{color:"black"}}> Last Name </p>
                 
+                  <div className="Email-Field">
                   <div className="Email-Wrapper">
                      <div> {LastNameValue === "" ? "":(LastNameValue === true ? 
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>:
@@ -132,11 +134,13 @@ const Signup = ()=>{
                     type="text"/>
                 </div>
                 </div>
+                </div>
                 
                 </div>
 
                 <div className="Contact-Section">
                 <p style={{color:"black"}}> Email Address </p>
+                <div className="Email-Field">
                 <div className="Email-Wrapper">
                      <div> {emailError == null? "":(emailError == true ?
                      <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
@@ -148,9 +152,11 @@ const Signup = ()=>{
                     "Email-Input-Bad":"Email-Input-Valid") )} 
                     type="text"/>
                 </div>
-                
+                </div>
+
                 <p style={{color:"black"}}> Student ID </p>
                
+                <div className="Email-Field">
                 <div className="Email-Wrapper">
                      <div> {IdError == null? "":(IdError== true ?
                      <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
@@ -162,7 +168,7 @@ const Signup = ()=>{
                     "Email-Input-Bad":"Email-Input-Valid") )} 
                     type="text"/>
                 </div>
-                
+                </div>
                 
                 <p style={{color:"black"}}> Index Number </p>
                 <input value={IndexNumber} onChange={handleIndexNumberChange} 
