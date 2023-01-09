@@ -6,7 +6,6 @@ import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { UserAuth } from "../contexts/AuthContext";
-import Home from "./Home";
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")

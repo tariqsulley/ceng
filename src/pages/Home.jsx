@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { UserAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router";
 
@@ -14,6 +14,10 @@ const Home = ()=>{
             console.log(e.message)
         }
     }
+
+    useEffect(()=>{
+        
+    },[])
     return(
         <div>
             Hello, {user && user.email}
