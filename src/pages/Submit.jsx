@@ -10,7 +10,7 @@ const SubmitPage = ()=>{
         <div className="Submit-Top">
             <div className="Submit-Top-Left">
                 <p className="Topic-Bold"> Topic Submission</p>
-                <p> {user && user.email}</p>
+                <p style={{color:"black"}}> {user && user.email}</p>
             </div>
             <div className="Submit-Top-Right">
                 {Date().slice(0,15)}

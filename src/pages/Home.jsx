@@ -20,7 +20,7 @@ const Home = ()=>{
     }
 
     
-    const [isMenuVisible, setIsMenuVisible] = useState(false);
+    const [isMenuVisible, setIsMenuVisible] = useState(true);
 
     const toggleMenu = () => {
         setIsMenuVisible(!isMenuVisible);
