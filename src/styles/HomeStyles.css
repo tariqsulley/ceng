@@ -42,6 +42,7 @@
     padding-left: 10px;
 }
 
+
 .Submit-Field{
     width: 100%;
     padding-left: 10px;
@@ -53,6 +54,13 @@
 
 .Student-Txt{
     color: #7e8299;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.Student-Txt:hover{
+    color: gold;
+    font-weight: bold;
 }
 
 .Tool-Txt{
