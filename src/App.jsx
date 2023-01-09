@@ -13,7 +13,7 @@ function App() {
    <Routes>
     <Route path="/" element={<Login/>}/>
     <Route path="/Signup" element={<Signup/>}/>
-    <Route path="/Home" element={ <ProtectedRoute><Home/></ProtectedRoute>}/>
+    <Route path="/Home" element={<Home/>}/>
    </Routes>
    </BrowserRouter>
    </AuthContextProvider>

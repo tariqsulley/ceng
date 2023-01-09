@@ -1,0 +1,75 @@
+.HomePage{
+    background-color: #f2f2f2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Menu{
+    background-color: white;
+    width: 23vw;
+    border: 3px solid gold;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Content{
+    background-color: white;
+    width: 75.5vw;
+}
+
+.Coe-Txt{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Top-Field{
+    width: 70%;
+}
+.Title-Field{
+        
+}
+
+.Home-Field{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.Submit-Field{
+    width: 100%;
+    padding-left: 10px;
+}
+.Upload-Field{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.Student-Txt{
+    color: #7e8299;
+}
+
+.Tool-Txt{
+    color: #7e8299;   
+}
+
+.Bottom-Field{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.Log-Btn{
+    background-color: tomato;
+    margin: 12px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
