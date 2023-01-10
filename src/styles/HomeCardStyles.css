@@ -1,0 +1,31 @@
+.Card{
+    box-shadow: 0px 0px 16px 1px #f2f2f2;
+    width: 40%;
+    height: 100%;
+    border: 1px solid #eff2f5;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.Card-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dotted{
+    border: 1px solid gray;
+    border-style: dashed;    
+}
+.Card-2{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:900px){
+    .Card{
+        width: 90%;
+        height: 70%;
+    }
+}

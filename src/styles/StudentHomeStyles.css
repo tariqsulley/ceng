@@ -1,0 +1,25 @@
+.Home-Top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.Student-Home{
+    height: 95vh;
+}
+
+.Card-Section{
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+
+@media only screen and (max-width:900px){
+ .Student-Home{
+ }   
+}

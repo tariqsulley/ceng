@@ -3,9 +3,11 @@ import "../styles/HomeStyles.css"
 import { UserAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router";
 import SubmitPage from "./Submit";
+import StudentHome from "./StudentHome";
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+
 
 const Home = ()=>{
     const[page,setPage] = useState()
@@ -77,7 +79,7 @@ className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900
             <div className="Bar2"></div>
             <div className="Bar3"></div>
             </div>
-             {page === 1 ? <p>1</p>:page === 2 ? <SubmitPage/>:3 }
+             {page === 1 ? <StudentHome/>:page === 2 ? <SubmitPage/>:3 }
             </div>
         </div>
     )
