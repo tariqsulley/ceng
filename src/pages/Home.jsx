@@ -3,6 +3,9 @@ import "../styles/HomeStyles.css"
 import { UserAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router";
 import SubmitPage from "./Submit";
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const Home = ()=>{
     const[page,setPage] = useState()
@@ -42,7 +45,8 @@ className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900
                <p className="Coe-Txt">CoE Ceng Portal</p>
                </div>
                <div className="Home-Field">
-                <p onClick={()=>{setPage(1);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Student Home</p>
+                <p onClick={()=>{setPage(1);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">
+                   <HomeOutlinedIcon style={{fontSize:29}}/> Student Home</p>
                </div>
                </div>
 
@@ -51,10 +55,12 @@ className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900
                         Tools
                     </div>
                     <div className="Submit-Field">
-                        <p onClick={()=>{setPage(2);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Submit Your Topic</p>
+                        <p onClick={()=>{setPage(2);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">
+                          <MessageOutlinedIcon/>  Submit Your Topic</p>
                     </div>
                     <div className="Upload-Field">
-                        <p onClick={()=>{setPage(3);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">Upload Your Report</p>
+                        <p onClick={()=>{setPage(3);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">
+                        <FileUploadOutlinedIcon/> Upload Your Report</p>
                     </div>
                </div>
                </div>

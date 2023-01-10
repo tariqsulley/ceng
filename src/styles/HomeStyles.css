@@ -51,11 +51,15 @@
     padding-left: 10px;
 }
 .Upload-Field{
+    
     width: 100%;
     padding-left: 10px;
 }
 
 .Student-Txt{
+    
+    display: flex;
+    gap: 10px;
     color: #7e8299;
     font-weight: bold;
     transition: 0.3s ease-in-out;
@@ -120,6 +124,8 @@
     height: 5px;
     background-color: grey;
 }
+
+
 
 .Bar2{
     width: 25px;
