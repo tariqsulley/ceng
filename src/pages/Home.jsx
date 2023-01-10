@@ -46,7 +46,7 @@ className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900
                </div>
                <div className="Home-Field">
                 <p onClick={()=>{setPage(1);setIsMenuVisible(!isMenuVisible)}} className="Student-Txt">
-                   <HomeOutlinedIcon style={{fontSize:29}}/> Student Home</p>
+                   <HomeOutlinedIcon style={{fontSize:29,marginTop:-4}}/> Student Home</p>
                </div>
                </div>
 
