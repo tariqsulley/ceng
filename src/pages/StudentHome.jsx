@@ -8,17 +8,20 @@ const StudentHome =()=>{
         <div className="Student-Home">
                 <div className="Home-Top">
                     <div className="Top-Left">
-                    <p style={{fontWeight:"bold",fontSize:"24px"}}> Student Home </p>
-                    <p className="Year"> 2022/2023 Academic Year </p>
+                    <p style={{fontWeight:"bold",fontSize:"24px",color:"black"}}> Student Home </p>
+                    <p className="Year" style={{color:"black"}}> 2022/2023 Academic Year </p>
                     </div>
                     <div className="Top-Right">
-                        <p> Tuesday, January 10 2023</p>
+                        <p style={{color:"Black"}}> Tuesday, January 10 2023</p>
                     </div>
                 </div>
                 <div className="Card-Section">
-                    <HomeCard title="Report Submission"/>
-                    <HomeCard title="Total Submission"/>
-                    <HomeCard title="Submission Status"/>
+                    <HomeCard title="Report Submission" text1="Open Date" text2 ="Close Date" 
+                    status1="24/10/23" status2="27/10/23" />
+                    <HomeCard title="Topic Submission" text1="Open Date" text2 ="Close Date" 
+                    status1="05/01/23" status2="20/03/23"/>
+                    <HomeCard title="Submission Status" text1="Topic Submission" 
+                    text2="Report Submission" status1="Opened" status2="Closed"  />
                 </div>
         </div>
     )

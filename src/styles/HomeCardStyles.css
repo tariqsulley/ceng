@@ -23,6 +23,26 @@
     justify-content: space-between;
 }
 
+.Opened{
+    background-color: #50CD89;
+    padding: 3px 18px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.Closed{
+    background-color: #F1416C;
+    padding: 3px 18px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.None{
+    color: black;
+    font-weight: bold;
+}
 @media only screen and (max-width:900px){
     .Card{
         width: 90%;
