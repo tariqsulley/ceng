@@ -7,10 +7,18 @@
 }
 .Submit-Top{
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .Topic-Bold{
     font-weight: bold;
     font-size: 20px;
     color: black;
+}
+
+
+@media only screen and (max-width:900px){
+ .Submit-Page{
+    height: 43%;
+ }   
 }
