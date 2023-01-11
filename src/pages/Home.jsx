@@ -12,6 +12,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const Home = ()=>{
     const[page,setPage] = useState()
+    const[width,setWidth] = useState(window.innerWidth)
     const [menu,setMenu] = useState()
     const {user,logOut} = UserAuth()
     const navigate = useNavigate()
@@ -32,9 +33,14 @@ const Home = ()=>{
         setIsMenuVisible(!isMenuVisible);
     }
 
-    useEffect(()=>{
+
+    useEffect(() => {
         setPage(1)
-    },[])
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+        }, []);
+
    
     return(
         <div className="HomePage">
@@ -42,7 +48,7 @@ const Home = ()=>{
             </div>
             
             <div 
-className={isMenuVisible ===true?"Menu":"Menu-Mobile" && window.innerWidth > 900 ? "Menu":"Menu-Mobile"}>
+className={isMenuVisible ===true?"Menu":"Menu-Mobile" && width > 900 ? "Menu":"Menu-Mobile"}>
                <div className="Top-Field">
                <div className="Title-Field">
                <div className="Ceng-Field">
