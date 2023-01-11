@@ -33,6 +33,7 @@ const Home = ()=>{
     }
 
     useEffect(()=>{
+        setPage(1)
     },[])
    
     return(
