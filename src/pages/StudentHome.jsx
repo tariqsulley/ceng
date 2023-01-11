@@ -8,11 +8,11 @@ const StudentHome =()=>{
         <div className="Student-Home">
                 <div className="Home-Top">
                     <div className="Top-Left">
-                    <p style={{fontWeight:"bold",fontSize:"24px",color:"black"}}> Student Home </p>
-                    <p className="Year" style={{color:"black"}}> 2022/2023 Academic Year </p>
+                    <p style={{fontWeight:"bold",fontSize:"24px",color:"black",paddingLeft:"30px"}}> Student Home </p>
+                    <p className="Year" style={{color:"black",paddingLeft:"30px"}}> 2022/2023 Academic Year </p>
                     </div>
                     <div className="Top-Right">
-                        <p style={{color:"Black"}}> Tuesday, January 10 2023</p>
+                        <p style={{color:"Black",paddingRight:"30px"}}> Tuesday, January 10 2023</p>
                     </div>
                 </div>
                 <div className="Card-Section">
