@@ -6,7 +6,7 @@
 }
 
 .Student-Home{
-    height: 95vh;
+    height: 90vh;
 }
 
 .Card-Section{
@@ -20,6 +20,11 @@
 
 
 @media only screen and (max-width:900px){
- .Student-Home{
- }   
+    .Student-Home{
+        height: 100vh;
+    }
+
+    .Card-Section{
+        height: 50%;
+    }
 }
