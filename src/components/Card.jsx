@@ -6,8 +6,8 @@ const Card = ({name,indexNum,topic})=>{
         <div className="Card-Body">
             <div className="Card-Top">
                 <div className="Name-Field">
-                    <p className="Card-Name"> Tariq Sulley</p>
-                    <p className="Card-Index"> 7142121 </p>
+                    <p className="Card-Name"> Kofi Boateng</p>
+                    <p className="Card-Index"> 7134567 </p>
                 </div>
                 <div className="State-Green">
                     Accepted
@@ -15,7 +15,7 @@ const Card = ({name,indexNum,topic})=>{
             </div>
             <div className="Card-Bottom">
                 <p className="Card-Title"> Topic Submitted</p>
-                <p className="Card-Topic"> Lack Of Segregated Waste For</p>
+                <p className="Card-Topic"> Inadequate Street Lights In The Lashibi Community</p>
             </div>
         </div>
     )
