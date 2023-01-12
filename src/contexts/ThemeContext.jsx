@@ -7,14 +7,9 @@ export const UseStyle=()=>{
 }
 
 export function StyleProvider({children}){
-    const [value,setValue] = useState("LeftSide")
-
-    function Toggle(){
-        setValue("FixedSide")
-    }
 
     return(
-        <UserStyle.Provider value={{value,Toggle}}>
+        <UserStyle.Provider>
             {children}
         </UserStyle.Provider>
     )
