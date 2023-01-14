@@ -68,6 +68,7 @@
 .Student-Txt:hover{
     color: gold;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .Tool-Txt{

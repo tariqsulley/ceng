@@ -6,6 +6,10 @@ import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { UserAuth } from "../contexts/AuthContext";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore"; 
+import { db } from "../firebase";
+import { getDatabase, ref, set } from "firebase/database";
+import {database} from "../firebase"
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
@@ -25,6 +29,17 @@ const Signup = ()=>{
     const {createUser} = UserAuth()
     const navigate = useNavigate()
 
+    const adduser = async()=>{
+      console.log("start")
+      await set(ref(database, 'users/' + "student1"), {
+        firstname: FirstName,
+        lastname: LastName
+      });
+      console.log("end")
+    }
+     
+    
+
     const handleSubmit = async()=>{
       if(Password !== PasswordCon){
         alert("Passwords must match")
@@ -33,7 +48,7 @@ const Signup = ()=>{
         alert("Student ID number must be 8 digits")
       }else{
         try{
-            await createUser(Email,Password)
+            await createUser(Email,Password,FirstName,LastName,IndexNumber,StudentID)
             navigate("/Home")
         }catch(e){
           console.log(e.message)
@@ -203,7 +218,7 @@ const Signup = ()=>{
                 <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
                 className="Input" type="text"/>
                 
-                <button onClick={handleSubmit} className="Btn"> Submit </button>
+                <button onClick={adduser} className="Btn"> Submit </button>
                 </div>
             </div>
 

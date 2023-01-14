@@ -1,0 +1,12 @@
+.ReportSubmitPage{
+    height: 99vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.ReportContent{
+   height: 50%;
+   position: absolute;
+   top: 20px;
+}
