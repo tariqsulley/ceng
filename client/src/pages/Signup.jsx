@@ -6,10 +6,7 @@ import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { UserAuth } from "../contexts/AuthContext";
-import { collection, addDoc, doc, setDoc } from "firebase/firestore"; 
-import { db } from "../firebase";
-import { getDatabase, ref, set } from "firebase/database";
-import {database} from "../firebase"
+
 
 const Signup = ()=>{
     const [FirstName,setFirstName] = useState("")
@@ -29,13 +26,23 @@ const Signup = ()=>{
     const {createUser} = UserAuth()
     const navigate = useNavigate()
 
-    const adduser = async()=>{
-      console.log("start")
-      await set(ref(database, 'users/' + "student1"), {
-        firstname: FirstName,
-        lastname: LastName
-      });
-      console.log("end")
+    const adduser = ()=>{
+      fetch("http://localhost:5000/api/student",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify({
+          FirstName: FirstName,
+          LastName:LastName,
+          Email: Email,
+          IndexNumber:IndexNumber,
+          StudentID:StudentID
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
     }
      
     
@@ -48,7 +55,8 @@ const Signup = ()=>{
         alert("Student ID number must be 8 digits")
       }else{
         try{
-            await createUser(Email,Password,FirstName,LastName,IndexNumber,StudentID)
+            await createUser(Email,Password)
+            await adduser()
             navigate("/Home")
         }catch(e){
           console.log(e.message)
@@ -218,7 +226,7 @@ const Signup = ()=>{
                 <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
                 className="Input" type="text"/>
                 
-                <button onClick={adduser} className="Btn"> Submit </button>
+                <button onClick={handleSubmit} className="Btn"> Submit </button>
                 </div>
             </div>
 

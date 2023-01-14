@@ -3,8 +3,7 @@ import {createUserWithEmailAndPassword,
 signInWithEmailAndPassword,
 signOut,
 onAuthStateChanged} from "firebase/auth"
-import { auth,db } from "../firebase"
-import {addDoc, collection, setDoc, doc} from "firebase/firestore"
+import { auth } from "../firebase"
 
 const UserContext = createContext()
 
@@ -15,21 +14,8 @@ export const UserAuth = ()=>{
 export const AuthContextProvider =({children})=>{
     const [user,setUser] = useState()
     
-    const createUser = async (email,password,FirstName,LastName,IndexNumber,StudentID)=>{  
-        await createUserWithEmailAndPassword(auth,email,password).then(async(res)=>{
-            const user = res.user
-            const docRef = await addDoc(collection(db,"studentinfo"),{
-                uid: user.uid,
-                firstname: FirstName,
-                lastname: LastName,
-                indexnum: IndexNumber,
-                studentid: StudentID
-             })
-             console.log("Document written with ID: ", docRef.id)
-        })
-        .catch((error) => {
-            console.log(error);
-          });
+    const createUser = (email,password)=>{  
+        return createUserWithEmailAndPassword(auth,email,password)
     }   
 
     const signIn = (email,password)=>{
