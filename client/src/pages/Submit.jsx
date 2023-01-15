@@ -18,7 +18,7 @@ const SubmitPage = ()=>{
         </div>
 
         <div className="Submit-Bottom">
-            <Card/>
+            <Card />
         </div>
     </div>
     )
