@@ -19,17 +19,36 @@ export const validateEmail = (email,action) =>{
 }
 
 const Login =()=>{
-    const [email,setEmail] = useState("")
+    const [emaiL,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [passError,setPassError] = useState("")
     const [emailError,setEmailError] = useState(null)
-    const {signIn} = UserAuth()
+    const [stud_name,setname] = useState("")
+    const [indexNum,setIndexNumber] = useState("")
+
+    const {signIn,user} = UserAuth()
     const navigate = useNavigate()
 
+   
+    const getUser = ()=>{
+        fetch(`http://localhost:5000/api/student/${user.email}`,{
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data =>{
+            setname(new Array(data[0]).map(i => [i.FirstName]))
+            setIndexNumber(new Array(data[0]).map(i => [JSON.parse(i.IndexNumber)]))
+        })
+        .catch(err => console.log(err))
+    }
     const handleSubmit = async(e)=>{
         try{
             e.preventDefault()
-            await signIn(email,password)
+            await signIn(emaiL,password)
+            await getUser()
             navigate("/Home")
         }catch(e){
             console.log(e.message)
@@ -63,7 +82,7 @@ const Login =()=>{
                      <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
                      </div>
-                    <input value={email} onChange={(e)=> 
+                    <input value={emaiL} onChange={(e)=> 
                     {setEmail(e.target.value);validateEmail(e.target.value,setEmailError)}} 
                     className={(emailError == null ? "Email-Input":(emailError == true ? 
                     "Email-Input-Bad":"Email-Input-Valid") )} 
