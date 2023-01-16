@@ -1,9 +1,24 @@
-.Card-Body{
+.Card-Body-Accepted{
     border-radius: 5px;
     border: 1px solid white;
     border-bottom: 4px solid #50CD89;
     box-shadow: 0px 2px 15px 3px #f2f2f2;
 }
+
+.Card-Body-Pending{
+    border-radius: 5px;
+    border: 1px solid white;
+    border-bottom: 4px solid gray;
+    box-shadow: 0px 2px 15px 3px #f2f2f2;
+}
+
+.Card-Body-Rejected{
+    border-radius: 5px;
+    border: 1px solid white;
+    border-bottom: 4px solid rgb(255, 38, 0);
+    box-shadow: 0px 2px 15px 3px #f2f2f2;
+}
+
 .Card-Top{
     margin: 20px;
     display: flex;
@@ -16,13 +31,29 @@
     font-size: 24px;
 }
 
-.State-Green{
+.State-Accepted{
     background-color: #50CD89;
     padding: 8px 20px;
     color: white;
     border-radius: 10px;
     font-weight: bold;
 }
+
+.State-Rejected{
+    background-color: rgb(255, 38, 0);
+    padding: 8px 20px;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.State-Pending{
+    background-color: gray;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 .Card-Index{
     color: grey;
     font-size: 18px;

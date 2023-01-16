@@ -3,9 +3,10 @@ import { useState } from "react";
 import "../styles/CardStyles.css"
 import { UserAuth } from "../contexts/AuthContext";
 
-const Card = ()=>{
+const Card = ({value})=>{
     const {user} = UserAuth()
     const [stud_name,setname] = useState("")
+    const[status,setStatus] = useState("Pending")
     const[last_name,setLast] = useState("")
     const [indexNum,setIndexNumber] = useState("")
     useEffect(()=>{
@@ -24,19 +25,22 @@ const Card = ()=>{
         .catch(err => console.log(err))
     },[])
     return(
-        <div className="Card-Body">
+        <div className={status === "Pending"?"Card-Body-Pending":status==="Accepted" ? 
+        "Card-Body-Accepted":"Card-Body-Rejected"}>
             <div className="Card-Top">
                 <div className="Name-Field">
                     <p className="Card-Name"> {stud_name +` ${last_name}`}</p>
                     <p className="Card-Index"> {indexNum} </p>
                 </div>
-                <div className="State-Green">
-                    Accepted
+                <div className={status === "Pending"?"State-Pending":status==="Accepted" ? 
+        "State-Accepted":"State-Rejected"}>
+                    {status === "Pending"? "Pending":status==="Accepted" ? 
+        "Accepted":"Rejected"}
                 </div>
             </div>
             <div className="Card-Bottom">
                 <p className="Card-Title"> Topic Submitted</p>
-                <p className="Card-Topic"> Inadequate Street Lights In The Lashibi Community</p>
+                <p className="Card-Topic">{value}</p>
             </div>
         </div>
     )

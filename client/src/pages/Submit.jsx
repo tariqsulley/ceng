@@ -3,10 +3,17 @@ import "../styles/SubmitStyles.css"
 import Card from "../components/Card";
 import SubmitInput from "../components/SubmitInput";
 import { UserAuth } from "../contexts/AuthContext";
+import { UseTopic } from "../contexts/TopicContext";
 
 const SubmitPage = ()=>{
     const {user} = UserAuth()
     const [status,setStatus] = useState(1)
+    const {topic} = UseTopic()
+
+    const Change =()=>{
+        setStatus(0)
+    }
+
     return(
     <div className="Submit-Page">
         <div className="Submit-Top">
@@ -17,7 +24,8 @@ const SubmitPage = ()=>{
         </div>
 
         <div className="Submit-Bottom">
-        {status === 0 ? <Card />:<SubmitInput/>}
+    
+        {status === 0 ? <Card value={topic}/>:<SubmitInput Change={Change} />}
         </div>
     </div>
     )

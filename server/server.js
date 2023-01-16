@@ -30,6 +30,7 @@ app.get("/api/student/:id",(req,res)=>{
     })
 })
 
+
 app.post("/api/student",(req,res)=>{
     const newStudent = new Student({
         FirstName: req.body.FirstName,
@@ -45,6 +46,19 @@ app.post("/api/student",(req,res)=>{
         return res.send("done")
     })
 })
+
+app.put("/api/student/:id", (req, res) => {
+    // Find the student by the provided ID
+    Student.findByIdAndUpdate(req.params.id, (err, student) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        if (!student) {
+            return res.status(404).send("Student not found");
+        }
+        res.send(student)
+    });
+});
 
 
 connect()
