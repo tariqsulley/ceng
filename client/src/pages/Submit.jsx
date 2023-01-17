@@ -3,7 +3,6 @@ import "../styles/SubmitStyles.css"
 import Card from "../components/Card";
 import SubmitInput from "../components/SubmitInput";
 import { UserAuth } from "../contexts/AuthContext";
-import { UseTopic } from "../contexts/TopicContext";
 
 const SubmitPage = ()=>{
     const {user} = UserAuth()
