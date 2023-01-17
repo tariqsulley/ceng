@@ -61,17 +61,6 @@ app.post("/api/student/topic/:id", async (req,res)=>{
     }
     });
 
-{/*
-app.post("/api/student/:id",(req,res)=>{
-    Student.findOneAndUpdate({ Email: req.body.Email }, { $push: { topics: req.body.topic } }, { new: true }, (error, savedNote) => {
-        if (error) {
-            return res.status(500).send(error);
-        }
-        return res.send("done")
-    });
-});
-*/}
-
 connect()
 const PORT = 5000
 app.listen(PORT,()=>{console.log("Server started")})

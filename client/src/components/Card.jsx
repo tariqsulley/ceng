@@ -2,8 +2,9 @@ import React, {useEffect} from "react";
 import { useState } from "react";
 import "../styles/CardStyles.css"
 import { UserAuth } from "../contexts/AuthContext";
+import CircularProgress from '@mui/material/CircularProgress';
 
-const Card = ({value})=>{
+const Card = ()=>{
     const {user} = UserAuth()
     const [stud_name,setname] = useState("")
     const[status,setStatus] = useState("...")
@@ -51,11 +52,13 @@ const Card = ({value})=>{
             </div>
         </div>
     )
-}else{
-    return(
-        <p> Loading </p>
-    )
-}
+    }else{
+        return(
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                <CircularProgress style={{color:"orange"}}/>
+            </div>
+        )
+    }
 }
 
 export default Card

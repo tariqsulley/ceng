@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react"
 import "../styles/SubmitInputStyles.css"
 import TextField from '@mui/material/TextField';
 import { UserAuth } from "../contexts/AuthContext";
-import { UseTopic } from "../contexts/TopicContext";
 
 const SubmitInput = ({Change})=>{
     const {user} = UserAuth()
