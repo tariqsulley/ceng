@@ -35,7 +35,7 @@ const SubmitPage = ()=>{
 
         <div className="Submit-Bottom">
     
-        {status === 0 ? <Card value={topic}/> : status === 1 ? <SubmitInput Change={Change} /> : null}
+        {status === 0 ? <Card/> : status === 1 ? <SubmitInput Change={Change} /> : null}
         </div>
     </div>
     )
