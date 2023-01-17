@@ -7,7 +7,6 @@ import { UserAuth } from "../contexts/AuthContext";
 const SubmitPage = ()=>{
     const {user} = UserAuth()
     const [status,setStatus] = useState()
-    const {topic} = UseTopic()
 
     useEffect( ()=>{
          fetch(`https://ceng.onrender.com/api/student/${user.email}`,{
