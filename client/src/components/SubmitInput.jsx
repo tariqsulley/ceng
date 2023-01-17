@@ -11,7 +11,7 @@ const SubmitInput = ({Change})=>{
         fetch("https")
     })
     const submitTopic = async()=>{
-       await fetch(`http://localhost:5000/api/student/topic/${user.email}`,{
+       await fetch(`https://ceng.onrender.com/api/student/topic/${user.email}`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

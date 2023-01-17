@@ -15,7 +15,7 @@ const Card = ()=>{
     //Bug: Firebase converts an email into lowercase, I am also storing the email in mongodb
     // so an email starting with a capital letter will not work
         useEffect(()=>{
-        fetch(`http://localhost:5000/api/student/${user.email}`,{ 
+        fetch(`https://ceng.onrender.com/api/student/${user.email}`,{ 
             method:"GET",
             headers:{
                 "Content-Type":"application/json"

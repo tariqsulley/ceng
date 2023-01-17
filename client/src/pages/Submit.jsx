@@ -11,7 +11,7 @@ const SubmitPage = ()=>{
     const {topic} = UseTopic()
 
     useEffect( ()=>{
-         fetch(`http://localhost:5000/api/student/${user.email}`,{
+         fetch(`https://ceng.onrender.com/api/student/${user.email}`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"

@@ -27,7 +27,7 @@ const Signup = ()=>{
     const navigate = useNavigate()
 
     const adduser = ()=>{
-      fetch("http://localhost:5000/api/student",{
+      fetch("https://ceng.onrender.com/api/student",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
