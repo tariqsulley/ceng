@@ -27,11 +27,11 @@ const Card = ({value})=>{
             setLast(new Array(data[0]).map(i => [i.LastName]))
             setTopic(new Array(data[0]).map(i => [i.Topic]))
             setStatus(new Array(data[0]).map(i => [i.Status]))
-            console.log(status[0][0])
         })
         .catch(err => console.log(err))
-    },[])
+    })
 
+    if(status !== "..."){
     return(
         <div className={status[0][0] === "Pending" ?"Card-Body-Pending":status[0][0]==="Accepted" ? 
         "Card-Body-Accepted":status[0][0] === "Rejected" ? "Card-Body-Rejected":"Card-Body-Pending"}>
@@ -51,6 +51,11 @@ const Card = ({value})=>{
             </div>
         </div>
     )
+}else{
+    return(
+        <p> Loading </p>
+    )
+}
 }
 
 export default Card
