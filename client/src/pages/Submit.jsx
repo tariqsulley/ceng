@@ -3,10 +3,12 @@ import "../styles/SubmitStyles.css"
 import Card from "../components/Card";
 import SubmitInput from "../components/SubmitInput";
 import { UserAuth } from "../contexts/AuthContext";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 const SubmitPage = ()=>{
     const {user} = UserAuth()
-    const [status,setStatus] = useState()
+    const [status,setStatus] = useState("...")
 
     useEffect( ()=>{
          fetch(`https://ceng.onrender.com/api/student/${user.email}`,{
@@ -24,6 +26,7 @@ const SubmitPage = ()=>{
         setStatus(0)
     }
 
+    if(status !== "..."){
     return(
     <div className="Submit-Page">
         <div className="Submit-Top">
@@ -39,6 +42,15 @@ const SubmitPage = ()=>{
         </div>
     </div>
     )
+    }
+    else{
+        return(
+            <div style={{height: "90vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+                 <CircularProgress style={{color:"orange"}}/>
+            </div>
+        )
+    }
+
 }
 
 export default SubmitPage
