@@ -7,9 +7,7 @@ const SubmitInput = ({Change})=>{
     const {user} = UserAuth()
     const [topic,setTopic] = useState("")
 
-    useEffect(()=>{
-        fetch("https")
-    })
+   
     const submitTopic = async()=>{
        await fetch(`https://ceng.onrender.com/api/student/topic/${user.email}`,{
             method:"POST",
