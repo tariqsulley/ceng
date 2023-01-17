@@ -1,10 +1,11 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
+const Student = require("./models/StudentInfo")
+
 const cors = require("cors")
 
 const url = "mongodb+srv://Tariq:1234@cluster0.ll4xzan.mongodb.net/?retryWrites=true&w=majority"
-const Student = require("./models/StudentInfo")
 
 async function connect(){
     try{
@@ -30,14 +31,14 @@ app.get("/api/student/:id",(req,res)=>{
     })
 })
 
-
 app.post("/api/student",(req,res)=>{
     const newStudent = new Student({
         FirstName: req.body.FirstName,
         LastName: req.body.LastName,
         Email: req.body.Email,
         IndexNumber: JSON.stringify(req.body.IndexNumber),
-        StudentId: JSON.stringify(req.body.StudentId)
+        StudentId: JSON.stringify(req.body.StudentId),
+        Status: req.body.Status
     })
     newStudent.save((error, savedNote) => {
         if (error) {
@@ -47,19 +48,29 @@ app.post("/api/student",(req,res)=>{
     })
 })
 
-app.put("/api/student/:id", (req, res) => {
-    // Find the student by the provided ID
-    Student.findByIdAndUpdate(req.params.id, (err, student) => {
-        if (err) {
-            return res.status(500).send(err);
+
+
+app.post("/api/student/topic/:id", async (req,res)=>{
+    try {
+        let result = await Student.updateMany({ Email: req.params.id },
+        { $set: { Topic: req.body.Topic , Status: req.body.Status} }, { new: true });
+        res.json(result);
+    } 
+    catch (err) {
+        res.status(500).json({error: err.message});
+    }
+    });
+
+{/*
+app.post("/api/student/:id",(req,res)=>{
+    Student.findOneAndUpdate({ Email: req.body.Email }, { $push: { topics: req.body.topic } }, { new: true }, (error, savedNote) => {
+        if (error) {
+            return res.status(500).send(error);
         }
-        if (!student) {
-            return res.status(404).send("Student not found");
-        }
-        res.send(student)
+        return res.send("done")
     });
 });
-
+*/}
 
 connect()
 const PORT = 5000

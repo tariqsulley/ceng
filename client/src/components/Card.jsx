@@ -6,11 +6,15 @@ import { UserAuth } from "../contexts/AuthContext";
 const Card = ({value})=>{
     const {user} = UserAuth()
     const [stud_name,setname] = useState("")
-    const[status,setStatus] = useState("Pending")
+    const[status,setStatus] = useState("")
     const[last_name,setLast] = useState("")
     const [indexNum,setIndexNumber] = useState("")
-    useEffect(()=>{
-        fetch(`http://localhost:5000/api/student/${user.email}`,{
+    const[topic,setTopic] = useState("")
+
+    //Bug: Firebase converts an email into lowercase, I am also storing the email in mongodb
+    // so an email starting with a capital letter will not work
+        useEffect(()=>{
+        fetch(`http://localhost:5000/api/student/${user.email}`,{ 
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -21,12 +25,14 @@ const Card = ({value})=>{
             setname(new Array(data[0]).map(i => [i.FirstName]))
             setIndexNumber(new Array(data[0]).map(i => [JSON.parse(i.IndexNumber)]))
             setLast(new Array(data[0]).map(i => [i.LastName]))
+            setTopic(new Array(data[0]).map(i => [i.Topic]))
+            setStatus(new Array(data[0]).map(i => [i.Status]))
         })
         .catch(err => console.log(err))
-    },[])
+    },[status])
     return(
         <div className={status === "Pending"?"Card-Body-Pending":status==="Accepted" ? 
-        "Card-Body-Accepted":"Card-Body-Rejected"}>
+        "Card-Body-Accepted":status === undefined ? "Pending":null}>
             <div className="Card-Top">
                 <div className="Name-Field">
                     <p className="Card-Name"> {stud_name +` ${last_name}`}</p>
@@ -40,7 +46,7 @@ const Card = ({value})=>{
             </div>
             <div className="Card-Bottom">
                 <p className="Card-Title"> Topic Submitted</p>
-                <p className="Card-Topic">{value}</p>
+                <p className="Card-Topic">{topic}</p>
             </div>
         </div>
     )

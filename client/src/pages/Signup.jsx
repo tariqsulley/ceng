@@ -37,7 +37,8 @@ const Signup = ()=>{
           LastName:LastName,
           Email: Email,
           IndexNumber:IndexNumber,
-          StudentID:StudentID
+          StudentID:StudentID,
+          Status: "Not Submitted"
         })
       })
       .then(res => res.json())

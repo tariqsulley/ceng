@@ -16,6 +16,12 @@ const StudentSchema = new Schema({
     },
     StudentId:{
         type:String
+    },
+    Topic:{
+        type:String
+    },
+    Status:{
+        type:String
     }
 },{timestamps:true})
 
