@@ -27,21 +27,22 @@ const Card = ({value})=>{
             setLast(new Array(data[0]).map(i => [i.LastName]))
             setTopic(new Array(data[0]).map(i => [i.Topic]))
             setStatus(new Array(data[0]).map(i => [i.Status]))
+            console.log(status[0][0])
         })
         .catch(err => console.log(err))
-    },[status])
+    },[])
+
     return(
-        <div className={status === "Pending"?"Card-Body-Pending":status==="Accepted" ? 
-        "Card-Body-Accepted":status === undefined ? "Pending":null}>
+        <div className={status[0][0] === "Pending" ?"Card-Body-Pending":status[0][0]==="Accepted" ? 
+        "Card-Body-Accepted":status[0][0] === "Rejected" ? "Card-Body-Rejected":"Card-Body-Pending"}>
             <div className="Card-Top">
                 <div className="Name-Field">
                     <p className="Card-Name"> {stud_name +` ${last_name}`}</p>
                     <p className="Card-Index"> {indexNum} </p>
                 </div>
-                <div className={status === "Pending"?"State-Pending":status==="Accepted" ? 
-        "State-Accepted":"State-Rejected"}>
-                    {status === "Pending"? "Pending":status==="Accepted" ? 
-        "Accepted":"Rejected"}
+                <div className={status[0][0] === "Pending"?"State-Pending":status[0][0]==="Accepted" ? 
+        "State-Accepted":status[0][0] === "Rejected" ? "State-Rejected":"State-Pending"}>
+                   {status}
                 </div>
             </div>
             <div className="Card-Bottom">
