@@ -6,7 +6,7 @@ import { UserAuth } from "../contexts/AuthContext";
 const Card = ({value})=>{
     const {user} = UserAuth()
     const [stud_name,setname] = useState("")
-    const[status,setStatus] = useState("")
+    const[status,setStatus] = useState("...")
     const[last_name,setLast] = useState("")
     const [indexNum,setIndexNumber] = useState("")
     const[topic,setTopic] = useState("")
