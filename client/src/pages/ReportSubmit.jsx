@@ -15,10 +15,13 @@ const ReportSubmit = ()=>{
 
             <div className="ReportContent">
             <p style={{color:"black"}}> Upload Your Report</p>
-            <input type="file" onClick={handleChange} accept="application/pdf"/>
-            <div>
-            {File && `${File.name} - ${File.type}`}
-            </div>
+            <label class="custom-file-upload">
+            <input type="file"/>
+                Upload
+            </label>
+            <button className="btn">
+                Submit 
+            </button>
             </div>
         
         </div>

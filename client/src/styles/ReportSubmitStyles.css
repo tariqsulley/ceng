@@ -5,8 +5,33 @@
     position: relative;
 }
 
+input[type="file"]{
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+}
+
 .ReportContent{
-   height: 50%;
+   height: 80%;
+   width: 50%;
+   padding: 10px 50px;
    position: absolute;
    top: 20px;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid;
+   justify-content: space-evenly;
+   border-radius: 5px;
+   box-shadow: -6px 4px 0px 2px rgb(21, 179, 81);
+}
+
+.btn{
+    background-color: rgb(24, 28, 50);
+    color: white;
 }
