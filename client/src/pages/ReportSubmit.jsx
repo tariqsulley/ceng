@@ -14,7 +14,7 @@ const ReportSubmit = ()=>{
         <div className="ReportSubmitPage">
 
         <div className="ReportContent">
-            <p style={{color:"black"}}> Upload Your Report</p>
+            <p style={{color:"black"}}> Upload Your CENG Report</p>
             <label class="custom-file-upload">
             <input type="file"/>
                 Upload
