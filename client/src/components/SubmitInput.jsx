@@ -32,7 +32,7 @@ const SubmitInput = ({Change})=>{
             <TextField id="outlined-basic" value ={topic} onChange={(e)=> setTopic(e.target.value)}
              label="Submit Topic" variant="outlined" />
         <button className="SubmitInputBtn" onClick={()=>{submitTopic();Change();}}>
-           {clicked === true ? <CircularProgress style={{color:"lightgrey"}}/>:"Submit"}
+           {clicked === true ? <CircularProgress sx={{color:"white"}} size="1rem"/>:"Submit"}
         </button>
         </div>
     )

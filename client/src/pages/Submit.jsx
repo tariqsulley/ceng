@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const SubmitPage = ()=>{
     const {user} = UserAuth()
     const [status,setStatus] = useState("...")
-
+    const [value,setValue] = useState("")
     useEffect( ()=>{
          fetch(`https://ceng.onrender.com/api/student/${user.email}`,{
             method:"GET",
@@ -19,6 +19,7 @@ const SubmitPage = ()=>{
         }).then(res => res.json())
         .then(data => {
             data[0].hasOwnProperty("Topic") === true ? setStatus(0):setStatus(1)
+            setValue(new Array(data[0]).map(i => [i.Status]))
         })
     },[])
 
@@ -26,7 +27,7 @@ const SubmitPage = ()=>{
         setStatus(0)
     }
 
-    if(status !== "..."){
+    if(status !== "..." && value !== "Rejected"){
     return(
     <div className="Submit-Page">
         <div className="Submit-Top">
@@ -42,6 +43,13 @@ const SubmitPage = ()=>{
         </div>
     </div>
     )
+    }
+    else if(status !== "..." && value === "Rejected"){
+      <div>
+        ReSubmit
+        <SubmitInput Change={Change}/>
+        <Card/>
+      </div>
     }
     else{
         return(
