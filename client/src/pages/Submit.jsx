@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const SubmitPage = ()=>{
     const {user} = UserAuth()
     const [status,setStatus] = useState("...")
-    const [value,setValue] = useState("")
+    const [value,setValue] = useState("Pending")
     useEffect( ()=>{
          fetch(`https://ceng.onrender.com/api/student/${user.email}`,{
             method:"GET",
@@ -21,18 +21,19 @@ const SubmitPage = ()=>{
             data[0].hasOwnProperty("Topic") === true ? setStatus(0):setStatus(1)
             setValue(new Array(data[0]).map(i => [i.Status]))
         })
+        console.log(value[0][0])
     },[])
 
     const Change =()=>{
         setStatus(0)
     }
 
-    if(status !== "..." && value !== "Rejected"){
+    if( status !== "..." && value[0][0]  !== "Rejected"){
     return(
     <div className="Submit-Page">
         <div className="Submit-Top">
             <div className="Submit-Top-Left">
-                <p className="Topic-Bold"> Topic Submission</p>
+                <p className="Topic-Bold">Submit Topic </p>
                 <p style={{color:"black"}}> {user && user.email }</p>
             </div>
         </div>
@@ -44,12 +45,14 @@ const SubmitPage = ()=>{
     </div>
     )
     }
-    else if(status !== "..." && value === "Rejected"){
-      <div>
-        ReSubmit
+    else if( value[0][0] !== undefined && value[0][0] === "Rejected"){
+     return(
+        <div className="Submit-Page">
+        <p style={{color:"black",fontWeight:"bold"}}> Topic Rejected, submit a better one!</p>
         <SubmitInput Change={Change}/>
         <Card/>
       </div>
+     )
     }
     else{
         return(
