@@ -11,6 +11,7 @@ input[type="file"]{
 
 .custom-file-upload {
     border: 1px solid #ccc;
+    color: black;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
@@ -28,10 +29,27 @@ input[type="file"]{
    border: 1px solid;
    justify-content: space-evenly;
    border-radius: 5px;
+   border: 1px solid;
    box-shadow: -6px 4px 0px 2px rgb(21, 179, 81);
 }
 
 .btn{
     background-color: rgb(24, 28, 50);
     color: white;
+}
+
+@media(max-width:500px){
+    .ReportSubmitPage{
+        display: flex;
+        border: 2px solid;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+    }
+    .ReportContent{
+        width: 60%;
+        height: 40%;
+        margin-top: 50px;
+    }
 }
