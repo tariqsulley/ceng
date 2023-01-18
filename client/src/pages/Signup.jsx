@@ -174,7 +174,7 @@ const Signup = ()=>{
                      <ErrorOutlineIcon className="Icon-Bad" style={{fontSize:30,color:"tomato"}}/>:
                      <CheckIcon className="Icon" style={{fontSize:30,color:"green"}}/>)} 
                      </div>
-                    <input value={Email} onChange={(e)=> 
+                    <input value={Email.toLocaleLowerCase()} onChange={(e)=> 
                     {setEmail(e.target.value);validateEmail(e.target.value,setEmailError)}} 
                     className={(emailError == null ? "Email-Input":(emailError == true ? 
                     "Email-Input-Bad":"Email-Input-Valid") )} 
