@@ -13,7 +13,7 @@ const ReportSubmit = ()=>{
     return(
         <div className="ReportSubmitPage">
 
-            <div className="ReportContent">
+        <div className="ReportContent">
             <p style={{color:"black"}}> Upload Your Report</p>
             <label class="custom-file-upload">
             <input type="file"/>
