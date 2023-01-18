@@ -7,6 +7,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const SubmitInput = ({Change})=>{
     const {user} = UserAuth()
     const [topic,setTopic] = useState("")
+    const [clicked,setClicked] = useState(false)
 
    
     const submitTopic = async()=>{
@@ -23,6 +24,7 @@ const SubmitInput = ({Change})=>{
        .then(res => res.json())
         .then(data => console.log(data))
        .catch(err => console.log(err))
+       setClicked(!clicked)
     }
 
     return(
@@ -30,7 +32,7 @@ const SubmitInput = ({Change})=>{
             <TextField id="outlined-basic" value ={topic} onChange={(e)=> setTopic(e.target.value)}
              label="Submit Topic" variant="outlined" />
         <button className="SubmitInputBtn" onClick={()=>{submitTopic();Change();}}>
-            Submit
+           {clicked === true ? <CircularProgress style={{color:"lightgrey"}}/>:"Submit"}
         </button>
         </div>
     )

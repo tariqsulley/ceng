@@ -6,6 +6,8 @@ import CheckIcon from '@mui/icons-material/Check';
 import { Link } from "react-router-dom";
 import { UserAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))\S$/;
 
@@ -23,6 +25,7 @@ const Login =()=>{
     const [password,setPassword] = useState("")
     const [passError,setPassError] = useState("")
     const [emailError,setEmailError] = useState(null)
+    const[clicked,setClicked] = useState(false)
     const [stud_name,setname] = useState("")
     const [indexNum,setIndexNumber] = useState("")
 
@@ -44,9 +47,9 @@ const Login =()=>{
         })
         .catch(err => console.log(err))
     }
-    const handleSubmit = async(e)=>{
+    const handleSubmit = async()=>{
         try{
-            e.preventDefault()
+            setClicked(!clicked)
             await signIn(emaiL,password)
             await getUser()
             navigate("/Home")
@@ -74,7 +77,7 @@ const Login =()=>{
                   <Link className="Create-Txt" to="/Signup">  Create an Account </Link>
                 </div>
                </div>
-               <form label="login-form" onClick={handleSubmit}  className="form">
+               <div className="form">
                 <div className="Email-Field">
                      <div className="Email-Txt">Email Address </div>
                      <div className="Email-Wrapper">
@@ -103,8 +106,10 @@ const Login =()=>{
                     className="Password-Input" type="password"/>
                     <p className="empty">{password.length > 0 ? "":passError}</p>
                 </div>
-                <button className="Btn"> Sign In </button>
-               </form>
+                <button onClick={handleSubmit} className="Btn"> 
+                {clicked === false ? "Sign In":<CircularProgress sx={{color:"white"}} size="1rem"/>}
+                 </button>
+               </div>
             </div>
         </div>
     )

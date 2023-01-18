@@ -4,6 +4,7 @@ import "../styles/CardStyles.css"
 import { UserAuth } from "../contexts/AuthContext";
 import CircularProgress from '@mui/material/CircularProgress';
 
+
 const Card = ()=>{
     const {user} = UserAuth()
     const [stud_name,setname] = useState("")

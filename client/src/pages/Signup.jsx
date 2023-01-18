@@ -6,6 +6,7 @@ import { validateEmail } from "./Login";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import { UserAuth } from "../contexts/AuthContext";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Signup = ()=>{
@@ -19,6 +20,8 @@ const Signup = ()=>{
    
     const [emailError,setEmailError] = useState(null)
     const [IdError,setIdError] = useState(null)
+
+    const[clicked,setClicked] = useState(false)
 
     const FirstNameValue = FirstName === "" ? "":FirstName.length > 0
     const LastNameValue = LastName === ""? "":LastName.length > 0
@@ -56,6 +59,7 @@ const Signup = ()=>{
         alert("Student ID number must be 8 digits")
       }else{
         try{
+            setClicked(!clicked)
             await createUser(Email,Password)
             await adduser()
             navigate("/Home")
@@ -199,8 +203,8 @@ const Signup = ()=>{
                 className="Input" type="text"/>
                 
                 <p style={{color:"black"}}> Password </p>
-                <input value={Password} onChange={(e)=> setPassword(e.target.value)}
-                className="Input" type="text"/>
+                <input  type="password" value={Password} onChange={(e)=> setPassword(e.target.value)}
+                className="Input"/>
                 <div className="StrengthField">
                         <div className={strength === "Weak" ? "PasswordStrength Weak":
                         (strength === "Moderate" ? "PasswordStrength Moderate":
@@ -224,10 +228,12 @@ const Signup = ()=>{
                 </div>
                 
                 <p style={{color:"black"}}> Confirm Password </p>
-                <input value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
-                className="Input" type="text"/>
+                <input type="password" value={PasswordCon} onChange={(e)=> setPasswordCon(e.target.value)}
+                className="Input"/>
                 
-                <button onClick={handleSubmit} className="Btn"> Submit </button>
+                <button onClick={handleSubmit} className="Btn"> 
+                {clicked === false ? "Sign Up":<CircularProgress sx={{color:"white"}} size="1rem"/>}
+                 </button>
                 </div>
             </div>
 

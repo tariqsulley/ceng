@@ -8,17 +8,20 @@ import ReportSubmit from "./ReportSubmit";
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Home = ()=>{
     const[page,setPage] = useState()
     const[width,setWidth] = useState(window.innerWidth)
     const [menu,setMenu] = useState()
+    const[clicked,setClicked] = useState(false)
     const {user,logOut} = UserAuth()
     const navigate = useNavigate()
 
     const handleLogout = async()=>{
         try{
+            setClicked(!clicked)
             await logOut()
             navigate("/")
         }catch(e){
@@ -77,7 +80,7 @@ className={isMenuVisible ===true?"Menu":"Menu-Mobile" && width > 900 ? "Menu":"M
 
                <div className="Bottom-Field">
                <button className="Log-Btn" onClick={handleLogout}>
-                Log Out
+               {clicked === false ? "Log Out":<CircularProgress sx={{color:"white"}} size="1rem"/>}
                 </button>
                </div>
             </div>

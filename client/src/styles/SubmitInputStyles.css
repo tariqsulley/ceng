@@ -17,6 +17,14 @@
     font-weight: bold;
 }
 
+.SubmitInputBtn:hover{
+    background-color: rgba(14, 190, 96,0.8);
+}
+
+.SubmitInputBtn:active{
+    background-color: red;
+}
+
 @media (max-width:900px){
     .SubmitInputPage{
         width: 85%;

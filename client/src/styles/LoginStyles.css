@@ -203,10 +203,12 @@
     border-color: tomato;
 }
 .Btn{
-    background-color: #181c32;
+    background-color: rgb(24, 28, 50);
     color: white;
 }
-
+.Btn:hover{
+    background-color: rgba(24,28,50,0.85);
+}
 @media only  screen and (max-width:990px){
     .MainPage{
         flex-direction: column;      
