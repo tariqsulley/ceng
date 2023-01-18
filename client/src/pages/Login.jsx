@@ -77,7 +77,7 @@ const Login =()=>{
                   <Link className="Create-Txt" to="/Signup">  Create an Account </Link>
                 </div>
                </div>
-               <div className="form" label="login">
+               <div className="form" >
                 <div className="Email-Field">
                      <div className="Email-Txt">Email Address </div>
                      <div className="Email-Wrapper">
@@ -89,7 +89,7 @@ const Login =()=>{
                     {setEmail(e.target.value);validateEmail(e.target.value,setEmailError)}} 
                     className={(emailError == null ? "Email-Input":(emailError == true ? 
                     "Email-Input-Bad":"Email-Input-Valid") )} 
-                    type="text"/>
+                    type="text" label="email field"/>
                     </div>
                 </div>
                 <div className="Password-Field">
@@ -103,7 +103,7 @@ const Login =()=>{
                     </div>
                     <input value={password} onChange={(e)=> {setPassword(e.target.value);
                     setPassError("Password cannot be empty")}}
-                    className="Password-Input" type="password"/>
+                    className="Password-Input" type="password" label="password field"/>
                     <p className="empty">{password.length > 0 ? "":passError}</p>
                 </div>
                 <button onClick={handleSubmit} className="Btn"> 
