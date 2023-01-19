@@ -3,13 +3,11 @@ import "../styles/ReportSubmitStyles.css"
 
 const ReportSubmit = ()=>{
     const [File,setFile] = useState(null)
-
-    const handleChange = (e)=>{
-        setFile(e.target.files[0])
-    }
+    
     useEffect(()=>{
         console.log(File)
     },[])
+
     return(
         <div className="ReportSubmitPage">
 
