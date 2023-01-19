@@ -7,8 +7,12 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    transition: transform .3s;
 }
 
+.Card:hover{
+    transform: translateY(-10px);   
+}
 .Card-1{
     display: flex;
     justify-content: space-between;
