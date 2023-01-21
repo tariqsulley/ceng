@@ -56,7 +56,7 @@ const Card = ()=>{
     }else{
         return(
             <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                <CircularProgress style={{color:"orange"}}/>
+                <CircularProgress style={{color:"gray"}}/>
             </div>
         )
     }
