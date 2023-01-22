@@ -7,7 +7,7 @@ const LeftDisplay = ({prop=false})=>{
     const onSignUp = prop
 
     useEffect(()=>{
-        console.log(onSignU)
+        console.log(onSignUp)
     },[])
 
     return(
