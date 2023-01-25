@@ -3,7 +3,7 @@ import "../styles/HomeCardStyles.css"
 
 const HomeCard = ({title,text1,text2,status1,status2})=>{
     return(
-        <div className="Card">
+        <div className="Card"
             <p style={{color:"#7E8299"}}>{title}</p>
             <div className="Card-1">
                 <p style={{color:"black"}}> {text1}</p>
