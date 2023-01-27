@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Card = ()=>{
-    const {user} = UserAuth(
+    const {user} = UserAuth()
     const [stud_name,setname] = useState("")
     const[status,setStatus] = useState("...")
     const[last_name,setLast] = useState("")
